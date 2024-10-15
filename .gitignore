@@ -1,0 +1,12 @@
+*.pyc
+__pycache__/
+
+*.log
+
+.env
+
+node_modules/
+
+questions.csv
+
+config.yaml
