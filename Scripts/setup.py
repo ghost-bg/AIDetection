@@ -7,6 +7,7 @@ from tqdm import tqdm
 import os
 
 # Load the dataset
+
 ds = load_dataset("toughdata/quora-question-answer-dataset", split="train")
 
 # Load API key from config file
@@ -34,7 +35,7 @@ def get_chatgpt_response(question):
         return "Error occurred during response generation."
 
 # Output file
-output_file = "quora_chatgpt_answers.jsonl"
+output_file = "data/output/quora_chatgpt_answers.jsonl"
 
 # Load already processed questions
 processed_questions = set()
