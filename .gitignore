@@ -10,3 +10,5 @@ node_modules/
 questions.csv
 
 config.yaml
+
+data/
