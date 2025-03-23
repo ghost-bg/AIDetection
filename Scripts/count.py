@@ -3,7 +3,7 @@
 import pandas as pd
 
 # Load the combined dataset
-file_path = "updated_combined_dataset.csv"  # Replace with your file name
+file_path = "data/input/updated_combined_dataset.csv"
 
 df = pd.read_csv(file_path)
 
@@ -11,7 +11,7 @@ df = pd.read_csv(file_path)
 df_unique = df.drop_duplicates(subset="answer", keep="first")  # `keep="first"` retains the first occurrence
 
 # Save the updated dataset to a new file
-output_file = "updated_combined_dataset_no_duplicates.csv"
+output_file = "data/output/updated_combined_dataset_no_duplicates.csv"
 df_unique.to_csv(output_file, index=False)
 
 # Print results
@@ -19,7 +19,7 @@ print(f"Original dataset had {len(df)} entries.")
 print(f"Dataset after removing duplicates has {len(df_unique)} entries.")
 print(f"Updated dataset saved to {output_file}.")
 # Load the dataset
-df = pd.read_csv("combined_dataset_no_duplicates.csv")
+df = pd.read_csv("data/input/combined_dataset_no_duplicates.csv")
 
 # Count the occurrences of each class
 class_counts = df["label"].value_counts()
