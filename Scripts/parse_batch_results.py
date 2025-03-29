@@ -5,8 +5,8 @@ import pandas as pd
 from pathlib import Path
 
 # File paths
-results_path = "data/completed_zero_shot/5.jsonl"
-output_csv = "data/output/parsed_results5.csv"
+results_path = "data/completed_zero_shot/6.jsonl"
+output_csv = "data/output/parsed_results6.csv"
 
 # Container for parsed outputs
 parsed_rows = []

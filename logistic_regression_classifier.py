@@ -40,7 +40,10 @@ model = LogisticRegression(max_iter=1000, C=1.0, random_state=42)
 model.fit(X_train_tfidf, y_train)
 
 y_pred = model.predict(X_test_tfidf)
-
+y_train_pred = model.predict(X_train_tfidf)
+# Test performance (already in your code)
+print("Test Accuracy:", accuracy_score(y_test, y_pred))
+print("\nTest Classification Report:\n", classification_report(y_test, y_pred))
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("\nClassification Report:\n", classification_report(y_test, y_pred))
 
