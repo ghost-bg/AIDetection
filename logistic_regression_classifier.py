@@ -15,7 +15,7 @@ X = df["answer"]
 y = df["label"]
 
 # Split into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 # Verify independence of training and testing sets
 train_answers = set(X_train)  # Convert training answers to a set
 test_answers = set(X_test)  # Convert testing answers to a set
@@ -51,3 +51,17 @@ import joblib
 joblib.dump(tfidf, "models/Vectoriser/tfidf_vectorizer.pkl")
 joblib.dump(model, "models/Models/logistic_regression_model.pkl")
 print("Model and vectorizer saved!")
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+
+# Generate confusion matrix
+cm = confusion_matrix(y_test, y_pred)
+
+# Print the confusion matrix
+print("Confusion Matrix:\n", cm)
+
+# Optional: display the confusion matrix as a plot
+import matplotlib.pyplot as plt
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=model.classes_)
+disp.plot(cmap='Blues')  # You can change the colormap if you'd like
+plt.title("Confusion Matrix")
+plt.show()

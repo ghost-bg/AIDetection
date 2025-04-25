@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
 
 # Load data
 df = pd.read_csv("data/output/zero_shot_results.csv", encoding="ISO-8859-1", low_memory=False)
@@ -35,9 +35,16 @@ print(f" Evaluating {len(df)} rows.")
 
 # Report
 from sklearn.metrics import classification_report, confusion_matrix
+import matplotlib.pyplot as plt
 
 print("\nClassification Report:")
 print(classification_report(y_true, y_pred, target_names=["0", "1"]))
 
 print("Confusion Matrix:")
-print(confusion_matrix(y_true, y_pred))
+
+cm = confusion_matrix(y_true, y_pred)
+print(cm)
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=["0", "1"])
+disp.plot(cmap='Blues')
+plt.title('Confusion Matrix')
+plt.show()
